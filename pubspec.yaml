@@ -1,4 +1,6 @@
 name: hop_browser_test_tasks
+version: 0.0.1
+author: Dan Schultz <dan@mixbook.com>
 description: Utils for creating test tasks for hop.
 dependencies:
   hop: '>=0.27.0 <0.28.0'
