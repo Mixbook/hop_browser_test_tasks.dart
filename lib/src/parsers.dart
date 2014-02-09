@@ -19,7 +19,10 @@ final OutputParser standard = (ProcessResult result, TaskContext context) {
     context.info(summary.firstMatch(result.stdout).group(0));
   }
 
-  if (errors.isNotEmpty || failures.isNotEmpty || !hasSummary) {
-    context.fail("Test failed");
+  if (errors.isNotEmpty || failures.isNotEmpty) {
+    context.fail("Tests failed.");
+  } else if (!hasSummary) {
+    context.severe(result.stdout);
+    context.fail("Tests unable to complete. Maybe because of a syntax error.");
   }
 };
