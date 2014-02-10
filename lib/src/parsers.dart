@@ -13,7 +13,7 @@ final OutputParser standard = (ProcessResult result, TaskContext context) {
     context.getSubContext("ERROR").severe(error.group(1));
   });
 
-  var summary = new RegExp(r"\d+ PASSED, \d+ FAILED, \d+ ERRORS");
+  var summary = new RegExp(r"All \d+ tests passed.");
   var hasSummary = summary.hasMatch(result.stdout);
   if (hasSummary) {
     context.info(summary.firstMatch(result.stdout).group(0));
